@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="Wheel Of Wheels — a timing-focused drag racing and tuning game.">
+  <title>Wheel Of Wheels</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">W</span><div><strong>WHEEL OF WHEELS</strong><small>DRAG • TUNE • CLIMB</small></div></div>
+      <div class="hud"><span>RANK <b id="rank">1</b></span><span>$<b id="money">0</b></span></div>
+    </header>
+
+    <section id="screen-home" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">GARAGE / SEASON 01</p>
+          <h1>Build it.<br><em>Spin it.</em><br>Beat them.</h1>
+          <p class="muted">A fast drag-racing loop where every part changes the car, every spin can change your build, and every shift matters.</p>
+          <div class="actions">
+            <button class="primary" data-screen="race">RACE NOW</button>
+            <button class="secondary" data-screen="garage">OPEN GARAGE</button>
+          </div>
+        </div>
+        <div class="car-stage">
+          <canvas id="homeCar" width="900" height="500" aria-label="Your car"></canvas>
+          <div class="stage-card"><span>YOUR BUILD</span><b id="homeStats">0 HP • 0 GRIP • 0 KG</b></div>
+        </div>
+      </div>
+      <div class="cards">
+        <article><span>01</span><b>SPIN</b><p>Roll a category and land a part with rarity-based odds.</p></article>
+        <article><span>02</span><b>SHIFT</b><p>Hit the RPM zone for perfect shifts and combo boost.</p></article>
+        <article><span>03</span><b>CLIMB</b><p>Beat procedural rivals and unlock stronger tiers.</p></article>
+      </div>
+    </section>
+
+    <section id="screen-race" class="screen">
+      <div class="race-layout">
+        <div class="race-head"><button class="icon-btn" data-screen="home">←</button><div><p class="eyebrow">TIER <span id="tierName">STREET</span></p><h2 id="rivalName">Rival</h2></div><div class="rival-power"><span>RIVAL POWER</span><b id="rivalPower">0</b></div></div>
+        <div class="race-card">
+          <canvas id="raceCanvas" width="1200" height="420"></canvas>
+          <div class="telemetry"><div><span>SPEED</span><b id="speed">0 KM/H</b></div><div><span>RPM</span><b id="rpm">1000</b></div><div><span>GEAR</span><b id="gear">1</b></div><div><span>COMBO</span><b id="combo">x1.0</b></div></div>
+          <div class="rev"><div id="revZone"></div><div id="revNeedle"></div></div>
+          <button id="shiftBtn" class="shift-btn">SHIFT</button>
+          <p class="hint">Keyboard: <kbd>SPACE</kbd> / <kbd>W</kbd> • Touch: press SHIFT</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen">
+      <div class="result-card">
+        <p class="eyebrow" id="resultEyebrow">RACE COMPLETE</p>
+        <h2 id="resultTitle">YOU WIN</h2>
+        <div class="result-grid"><div><span>TIME</span><b id="resultTime">0.00s</b></div><div><span>REWARD</span><b id="resultReward">$0</b></div><div><span>SHIFT SCORE</span><b id="resultScore">0%</b></div></div>
+        <p id="resultMessage" class="muted"></p>
+        <div class="actions"><button class="primary" data-screen="wheel">NEXT BUILD</button><button class="secondary" data-screen="home">GARAGE</button></div>
+      </div>
+    </section>
+
+    <section id="screen-wheel" class="screen">
+      <div class="wheel-layout">
+        <div><button class="icon-btn" data-screen="home">←</button><p class="eyebrow">BUILD PHASE</p><h2 id="wheelTitle">SPIN FOR ENGINE</h2><p class="muted" id="wheelSubtitle">Every category has weighted rarity. Rare parts are harder to land.</p></div>
+        <div class="wheel-wrap"><canvas id="wheelCanvas" width="560" height="560"></canvas><div class="wheel-pointer">▼</div><button id="spinBtn" class="primary spin">SPIN</button></div>
+        <div class="parts" id="partsList"></div>
+      </div>
+    </section>
+
+    <section id="screen-garage" class="screen">
+      <div class="garage-head"><div><p class="eyebrow">WORKSHOP</p><h2>YOUR BUILD</h2></div><button class="secondary" data-screen="race">RACE</button></div>
+      <div class="garage-grid">
+        <div class="garage-car"><canvas id="garageCar" width="800" height="520"></canvas><div class="stats"><div><span>POWER</span><b id="gHp">0 HP</b></div><div><span>GRIP</span><b id="gGrip">0</b></div><div><span>WEIGHT</span><b id="gWeight">0 KG</b></div><div><span>DRAG</span><b id="gDrag">0</b></div></div></div>
+        <div class="upgrade-panel"><h3>PARTS</h3><div id="upgradeList"></div></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="src/game.js"></script>
+</body>
+</html>
