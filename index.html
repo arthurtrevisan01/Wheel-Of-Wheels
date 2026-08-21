@@ -3,110 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Wheel Of Wheels — ENGINE SIZE</title>
+<title>Wheel Of Wheels — Premium Drag Gacha</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!-- CENA 3D EM EXPOSIÇÃO (câmera orbitando 360) -->
 <div class="stage">
-  <canvas id="sceneCanvas" class="scene-canvas" width="440" height="960"></canvas>
+  <canvas id="sceneCanvas" class="scene-canvas"></canvas>
 
-  <!-- UI SOBRE A CENA — FIEL À FOTO -->
   <div class="ui-overlay">
-    <!-- Top bar com X -->
-    <button id="closeBtn" class="close-btn" aria-label="Fechar">✕</button>
-
-    <!-- YOUR CAR — canto superior esquerdo -->
-    <div class="your-car">
+    <button id="closeBtn" class="close-btn">✕</button>
+    <div class="your-car glass">
       <h2>YOUR CAR</h2>
-      <ul id="yourCarList">
-        <li><span>PWR</span><b>—</b></li>
-        <li><span>MASS</span><b>—</b></li>
-        <li><span>DRIVE</span><b>—</b></li>
-        <li><span>TYRES</span><b>—</b></li>
-        <li><span>GEARS</span><b>—</b></li>
-        <li><span>BRAKES</span><b>—</b></li>
-        <li><span>SUSP</span><b>—</b></li>
-        <li><span>EXHAUST</span><b>—</b></li>
-        <li><span>RIMS</span><b>—</b></li>
-        <li><span>AERO</span><b>—</b></li>
-        <li><span>TOP</span><b>—</b></li>
-      </ul>
+      <ul id="yourCarList"></ul>
     </div>
-
-    <!-- Painel direito — AUTO / BEST / $ / SHOP -->
     <div class="right-panel">
-      <button id="autoBtn" class="auto-pill">AUTO: OFF</button>
-      <div class="best-row">
+      <button id="autoBtn" class="auto-pill glass">AUTO: OFF</button>
+      <div class="best-row glass">
         <div id="bestDots" class="best-dots"></div>
         <span id="bestLabel" class="best-label">BEST 0/14</span>
       </div>
-      <div id="moneyDisplay" class="money">$0</div>
-      <button id="shopBtn" class="shop-btn"><span class="gear">⚙</span> SHOP</button>
+      <div id="moneyDisplay" class="money glass">$0</div>
+      <button id="shopBtn" class="shop-btn glass"><span class="gear">⚙</span> SHOP</button>
+      <div id="scenarioBadge" class="scenario-badge glass">
+        <span id="scenarioIcon">🌃</span>
+        <span id="scenarioName">Neon City</span>
+        <small id="scenarioDist">402M</small>
+      </div>
     </div>
   </div>
 
-  <!-- ROLETA — sobrepondo a cena, centro inferior -->
   <div class="wheel-layer">
-    <div class="engine-label">ENGINE SIZE</div>
-    <div class="wheel-wrap">
-      <div class="wheel-pointer"></div>
-      <div id="wheelContainer" class="wheel-container">
-        <canvas id="wheelCanvas" width="560" height="560"></canvas>
-        <div class="wheel-center-hole"></div>
+    <div class="glass wheel-glass">
+      <div class="engine-label" id="engineLabel">ENGINE SIZE</div>
+      <div class="wheel-wrap">
+        <div class="wheel-pointer"></div>
+        <div id="wheelContainer" class="wheel-container">
+          <canvas id="wheelCanvas" width="640" height="640"></canvas>
+          <div class="wheel-center-hole"></div>
+        </div>
+        <div id="resultCard" class="result-card glass hidden">
+          <div id="resultStars" class="result-stars">★★★☆☆</div>
+          <div id="resultName" class="result-name">TWIN TURBO</div>
+          <div id="resultChance" class="result-chance">12.4% CHANCE</div>
+          <div id="resultRarity" class="result-rarity">RARO</div>
+        </div>
       </div>
-      <!-- card de resultado flutuante sobre a roda -->
-      <div id="resultCard" class="result-card hidden">
-        <div id="resultStars" class="result-stars">★★★☆☆</div>
-        <div id="resultName" class="result-name">TWIN TURBO</div>
-        <div id="resultChance" class="result-chance">12.4% CHANCE</div>
+      <div class="spin-row">
+        <button id="spinLeft" class="spin-btn"><span>SPIN</span></button>
+        <button id="spinRight" class="spin-btn"><span>SPIN</span></button>
       </div>
+      <button id="nextBtn" class="next-btn hidden">CONTINUAR →</button>
+      <p class="hint">Toque em qualquer SPIN • Espaço também gira</p>
     </div>
-    <div class="spin-row">
-      <button id="spinLeft" class="spin-btn"><span>SPIN</span></button>
-      <button id="spinRight" class="spin-btn"><span>SPIN</span></button>
-    </div>
-    <button id="nextBtn" class="next-btn hidden">CONTINUAR →</button>
-    <p id="hint" class="hint">Toque em qualquer SPIN • Espaço também gira</p>
   </div>
 
-  <!-- VIEW CORRIDA (escondida até montar carro) -->
   <div id="raceView" class="race-view hidden">
-    <canvas id="raceCanvas" width="440" height="640"></canvas>
-    <div class="race-hud">
+    <canvas id="raceCanvas" width="440" height="720"></canvas>
+    <div class="race-hud glass">
       <div><small>GEAR</small><strong id="hudGear">N</strong></div>
       <div class="hud-center"><strong id="hudSpeed">0</strong><small>KM/H</small><div id="hudTime">0.000s</div></div>
       <div style="text-align:right"><small>OPONENTE</small><strong id="hudOpponent">—</strong></div>
     </div>
-    <div id="lights" class="lights"><span class="light"></span><span class="light"></span><span class="light"></span><span class="light"></span><span class="light"></span></div>
-    <div class="rpm-wrap">
-      <div class="rpm-head"><span>RPM</span><span id="rpmVal">900</span></div>
-      <div class="rpm-bar"><div id="rpmFill" class="rpm-fill"></div><div class="rpm-perfect"></div><div class="rpm-red"></div></div>
+    <div id="trafficLights" class="traffic-lights glass">
+      <div class="tl-light red" data-idx="0"><span></span></div>
+      <div class="tl-light red" data-idx="1"><span></span></div>
+      <div class="tl-light yellow" data-idx="2"><span></span></div>
+      <div class="tl-light green" data-idx="3"><span></span></div>
     </div>
-    <div class="race-controls">
+    <div class="tacho-wrap glass">
+      <canvas id="tachoCanvas" width="220" height="220"></canvas>
+      <div class="tacho-center"><span id="tachoRpm">900</span><small>RPM</small></div>
+    </div>
+    <div class="race-controls glass">
       <div id="launchControls" class="race-btns"><button id="launchLeft" class="btn-launch">LAUNCH</button><button id="launchRight" class="btn-launch">LAUNCH</button></div>
       <div id="shiftControls" class="race-btns hidden"><button id="shiftLeft" class="btn-shift">SHIFT ◀</button><button id="shiftRight" class="btn-shift">SHIFT ▶</button></div>
       <button id="raceStartBtn" class="btn-primary">PREPARAR LARGADA</button>
-      <p id="raceHint" class="hint">Acerte o verde no LAUNCH e no SHIFT!</p>
+      <p id="raceHint" class="hint">2 vermelhas → amarela → verde! 250ms = +75ms</p>
     </div>
-    <button id="backToBuild" class="back-btn">← VOLTAR</button>
+    <button id="backToBuild" class="back-btn glass">← VOLTAR</button>
   </div>
 </div>
 
-<!-- MODAIS -->
-<div id="shopModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card">
-  <h2>Loja</h2><p class="modal-sub">Remova a pior opção antes de girar.</p>
-  <button id="shopRemove" class="shop-item" style="width:100%;margin-top:12px"><strong>✕ Remove Worst</strong><span>Elimina a pior fatia da roleta atual</span><b>$250</b></button>
+<div id="shopModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card glass">
+  <h2>Loja</h2><p class="modal-sub">Controle o risco antes de girar.</p>
+  <button id="shopRemove" class="shop-item neumorph" style="width:100%;margin-top:12px"><strong>✕ Limpar Peças de Baixa Performance</strong><span>Remove a pior fatia da roleta atual</span><b>$250</b></button>
   <button id="closeShop" class="btn-ghost" style="width:100%;margin-top:12px">FECHAR</button>
 </div></div>
 
-<div id="resultModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card">
+<div id="resultModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card glass">
   <div id="modalIcon" class="modal-icon">🏆</div>
   <h2 id="modalTitle">VITÓRIA!</h2>
-  <p id="modalSub" class="modal-sub">Você venceu</p>
-  <div class="modal-stats"><div><span>SEU TEMPO</span><strong id="modalTime">—</strong></div><div><span>OPONENTE</span><strong id="modalOppTime">—</strong></div><div><span>PB</span><strong id="modalPB">—</strong></div><div><span>RECOMPENSA</span><strong id="modalReward">—</strong></div></div>
-  <div id="rewardBreak" class="reward-break"></div>
+  <p id="modalSub" class="modal-sub"></p>
+  <div class="modal-stats"><div class="neumorph"><span>SEU TEMPO</span><strong id="modalTime">—</strong></div><div class="neumorph"><span>OPONENTE</span><strong id="modalOppTime">—</strong></div><div class="neumorph"><span>PB</span><strong id="modalPB">—</strong></div><div class="neumorph"><span>RECOMPENSA</span><strong id="modalReward">—</strong></div></div>
+  <div id="rewardBreak" class="reward-break neumorph"></div>
   <div class="modal-actions">
     <button id="upgradeBtn" class="btn-primary">🔧 MELHORAR PEÇA (só melhores)</button>
     <button id="againBtn" class="btn-ghost">CORRER NOVAMENTE</button>
@@ -114,12 +104,12 @@
   </div>
 </div></div>
 
-<div id="pickModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card" style="max-width:560px">
-  <h2>Escolha a peça</h2><p class="modal-sub">A roleta conterá <b>apenas peças melhores</b> que a atual.</p>
+<div id="pickModal" class="modal hidden"><div class="modal-backdrop"></div><div class="modal-card glass" style="max-width:620px">
+  <h2>Grid de Upgrades — 14 Módulos</h2><p class="modal-sub">Toque no módulo para rerolar apenas com peças melhores.</p>
   <div id="pickGrid" class="pick-grid"></div>
   <button id="closePick" class="btn-ghost" style="width:100%;margin-top:12px">FECHAR</button>
 </div></div>
 
-<script type="module" src="./app.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>
