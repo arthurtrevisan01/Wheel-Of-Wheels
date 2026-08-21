@@ -1,13 +1,93 @@
-:root{--bg:#080b12;--panel:#101620;--panel2:#151c28;--line:#263140;--text:#f4f7fb;--muted:#8f9aaa;--accent:#ff5b35;--accent2:#ffb84d;--good:#67e8a5;--danger:#ff6b7a;--radius:18px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}html,body{margin:0;background:radial-gradient(circle at 80% 0,#17202d 0,#080b12 42%);color:var(--text);min-height:100%;overflow-x:hidden}button{font:inherit}button:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
-.topbar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4vw;position:sticky;top:0;z-index:10;background:rgba(8,11,18,.88);backdrop-filter:blur(16px)}
-.brand{display:flex;gap:11px;align-items:center}.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-weight:900;font-style:italic}.brand strong{display:block;font-size:13px;letter-spacing:.12em}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.16em;margin-top:2px}.hud{display:flex;gap:18px;color:var(--muted);font-size:11px;letter-spacing:.1em}.hud b{color:var(--text);font-size:14px}
-.screen{display:none;min-height:calc(100vh - 72px);padding:5vh 5vw}.screen.active{display:block}.hero{max-width:1250px;margin:auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:4vw;align-items:center;min-height:65vh}.eyebrow{font-size:10px;letter-spacing:.2em;color:var(--accent2);font-weight:800;margin:0 0 12px}.hero h1{font-size:clamp(52px,7vw,102px);line-height:.84;margin:0 0 26px;letter-spacing:-.06em}.hero h1 em{color:var(--accent);font-style:normal}.muted{color:var(--muted);line-height:1.65;max-width:560px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}button{border:0;cursor:pointer}.primary,.secondary,.icon-btn{border-radius:12px;padding:13px 18px;font-weight:850;letter-spacing:.06em}.primary{background:var(--accent);color:#fff;box-shadow:0 10px 35px rgba(255,91,53,.22)}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.icon-btn{padding:9px 13px;background:var(--panel2);border:1px solid var(--line);color:var(--text)}
-.car-stage{position:relative;min-height:420px}.car-stage canvas,.garage-car canvas{width:100%;height:auto;display:block}.stage-card{position:absolute;right:0;bottom:0;background:rgba(16,22,32,.88);border:1px solid var(--line);padding:14px 18px;border-radius:14px}.stage-card span,.stage-card b{display:block}.stage-card span{font-size:9px;color:var(--muted);letter-spacing:.15em}.stage-card b{font-size:13px;margin-top:4px}.cards{max-width:1250px;margin:3vh auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cards article{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:var(--radius)}.cards span{color:var(--accent);font-weight:900}.cards b{display:block;margin-top:20px}.cards p{color:var(--muted);font-size:13px;line-height:1.5}
-.race-layout{max-width:1200px;margin:auto}.race-head,.garage-head{display:flex;align-items:center;gap:18px;margin-bottom:20px}.race-head h2,.garage-head h2,.wheel-layout h2,.result-card h2{font-size:clamp(32px,5vw,60px);line-height:.9;letter-spacing:-.04em;margin:0}.rival-power{margin-left:auto;text-align:right}.rival-power span{display:block;color:var(--muted);font-size:9px;letter-spacing:.15em}.rival-power b{font-size:24px}.race-card{position:relative;background:linear-gradient(180deg,#121923,#0c1118);border:1px solid var(--line);border-radius:24px;padding:12px;overflow:hidden}.race-card canvas{width:100%;display:block;border-radius:15px}.telemetry{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.telemetry div,.stats div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}.telemetry span,.stats span{display:block;color:var(--muted);font-size:8px;letter-spacing:.14em}.telemetry b,.stats b{display:block;margin-top:3px}.rev{height:20px;background:#080b10;border:1px solid var(--line);border-radius:99px;margin:14px 6px 8px;position:relative;overflow:hidden}.rev:before{content:"";position:absolute;inset:0 20% 0 0;background:linear-gradient(90deg,#2d8bff,#67e8a5 55%,#ffb84d 76%,#ff5b35 90%);opacity:.22}.rev:after{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed #fff2}.revZone{position:absolute;right:18%;width:13%;top:0;bottom:0;background:rgba(103,232,165,.45)}#revNeedle{position:absolute;top:0;bottom:0;width:3px;background:#fff;left:0;box-shadow:0 0 12px #fff}.shift-btn{width:100%;font-size:25px;padding:18px;border-radius:14px;background:var(--accent);color:white;font-weight:950;letter-spacing:.12em}.hint{text-align:center;color:var(--muted);font-size:11px}kbd{border:1px solid var(--line);padding:2px 5px;border-radius:5px;background:var(--panel)}
-.result-card{max-width:720px;margin:12vh auto;background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:clamp(28px,6vw,64px);text-align:center}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:35px 0}.result-grid div{padding:18px;background:var(--panel2);border-radius:13px}.result-grid span{display:block;color:var(--muted);font-size:9px;letter-spacing:.15em}.result-grid b{display:block;margin-top:5px;font-size:22px}
-.wheel-layout{max-width:1100px;margin:auto;display:grid;grid-template-columns:.75fr 1.2fr .7fr;gap:30px;align-items:center}.wheel-wrap{text-align:center;position:relative}.wheel-wrap canvas{width:min(100%,560px);height:auto}.wheel-pointer{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:28px;color:var(--accent2);z-index:2}.spin{margin-top:-25px;position:relative}.parts{display:grid;gap:8px}.part-row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}.part-row small{display:block;color:var(--muted);font-size:9px;letter-spacing:.1em}.part-row b{display:block;margin-top:3px}
-.garage-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:20px}.garage-car,.upgrade-panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:15px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.upgrade-panel h3{margin:8px 0 14px}.upgrade{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.upgrade:last-child{border-bottom:0}.upgrade small{color:var(--muted);display:block}.upgrade button{padding:8px 11px;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px}.upgrade button:disabled{opacity:.45;cursor:not-allowed}
-#toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#f4f7fb;color:#080b12;padding:10px 15px;border-radius:10px;font-size:12px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:30}#toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:900px){.hero,.wheel-layout,.garage-grid{grid-template-columns:1fr}.hero{padding-top:20px}.car-stage{min-height:280px}.cards{grid-template-columns:1fr}.wheel-layout>div:first-child{text-align:center}.parts{grid-template-columns:1fr 1fr}.garage-grid{gap:12px}.result-card{margin:6vh auto}.screen{padding:3vh 4vw}}
-@media(max-width:560px){.topbar{padding:0 16px}.brand strong{font-size:11px}.hud{gap:8px}.telemetry,.stats{grid-template-columns:repeat(2,1fr)}.race-head{gap:9px}.rival-power{font-size:10px}.hero h1{font-size:58px}.parts{grid-template-columns:1fr}.screen{padding:20px 14px}}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#040512;color:#EAF0FF;font-family:'Space Grotesk',system-ui,sans-serif;overflow:hidden;height:100%}
+body{height:100dvh;width:100vw}
+.stage{position:relative;width:100%;height:100dvh;overflow:hidden;background:#040512}
+/* cena 3D */
+.scene-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* UI overlay fiel à foto */
+.ui-overlay{position:absolute;inset:0;pointer-events:none}
+.close-btn{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:12px;border:none;background:#C8CCD6;color:#1A1A1E;font-size:18px;font-weight:700;pointer-events:auto;cursor:pointer}
+.your-car{position:absolute;left:14px;top:64px;pointer-events:none}
+.your-car h2{margin:0 0 6px;font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.08em;color:#FF2D8A;font-weight:800}
+.your-car ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.your-car li{display:flex;gap:12px;align-items:center;font-size:12px;letter-spacing:.04em}
+.your-car li span{color:#EAF0FF;min-width:58px;font-weight:500}
+.your-car li b{color:#4DD0E0;font-weight:700;letter-spacing:.14em}
+.right-panel{position:absolute;right:14px;top:70px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
+.auto-pill{pointer-events:auto;background:rgba(20,22,38,.92);border:1px solid rgba(255,255,255,.18);color:#EAF0FF;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.10em;padding:7px 14px;border-radius:999px;cursor:pointer}
+.auto-pill.active{background:rgba(0,200,83,.18);border-color:rgba(0,200,83,.42);color:#00E676}
+.best-dots{display:flex;gap:5px}
+.best-dots span{width:11px;height:11px;border-radius:50%;border:1.5px solid rgba(255,255,255,.72);background:transparent}
+.best-dots span.filled{background:#EAF0FF;border-color:#EAF0FF;box-shadow:0 0 8px rgba(255,255,255,.6)}
+.best-dots span.best{background:#FFD54A;border-color:#FFD54A;box-shadow:0 0 8px rgba(255,213,74,.8)}
+.best-label{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.72);font-weight:600;text-align:right}
+.money{color:#FFD54A;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;letter-spacing:.02em}
+.shop-btn{pointer-events:auto;background:rgba(20,18,36,.92);border:1px solid rgba(255,213,74,.55);color:#FFD54A;font-weight:800;letter-spacing:.10em;font-size:12px;padding:8px 16px;border-radius:999px;display:flex;align-items:center;gap:7px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.shop-btn .gear{font-size:13px}
+/* wheel layer sobrepondo */
+.wheel-layer{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;padding:0 14px 14px;pointer-events:none}
+.engine-label{font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:.18em;font-size:14px;color:#EAF0FF;text-shadow:0 2px 12px rgba(0,0,0,.8);margin-bottom:6px}
+.wheel-wrap{position:relative;width:100%;aspect-ratio:1;max-width:400px;pointer-events:auto}
+.wheel-pointer{position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:14px solid #FFC400;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7));z-index:5}
+.wheel-container{position:relative;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 30% 20%, #1A1F3A 0%, #070A1E 68%);padding:4px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.10), 0 18px 50px rgba(0,0,0,.65)}
+#wheelCanvas{width:100%;height:100%;border-radius:50%;display:block}
+.wheel-center-hole{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:22%;aspect-ratio:1;border-radius:50%;background:#05071A;border:2px solid rgba(255,255,255,.10);box-shadow:inset 0 0 12px rgba(0,0,0,.8)}
+.result-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:linear-gradient(180deg, rgba(18,22,56,.97), rgba(10,12,30,.98));border:1px solid rgba(255,196,0,.35);border-radius:14px;padding:12px 14px;min-width:180px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.6);z-index:6}
+.result-card.hidden{display:none}
+.result-stars{color:#FFD54A;letter-spacing:.12em;font-size:11px}
+.result-name{margin-top:4px;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
+.result-chance{margin-top:2px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.10em;color:#4DD0E0;font-weight:700}
+.spin-row{pointer-events:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;margin-top:14px}
+.spin-btn{appearance:none;border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:14px 10px;background:linear-gradient(180deg, #2A3D4E 0%, #1A2535 45%, #3A1E2E 100%);color:#EAF0FF;font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:.14em;font-size:14px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 8px 24px rgba(0,0,0,.45);text-shadow:0 0 10px rgba(255,255,255,.6)}
+.spin-btn:active{transform:scale(.98)}
+.spin-btn:disabled{opacity:.45}
+.next-btn{pointer-events:auto;margin-top:10px;width:100%;padding:12px;border-radius:12px;border:none;background:linear-gradient(180deg, #00E5FF, #00B8D4);color:#001018;font-weight:800;letter-spacing:.08em;cursor:pointer}
+.next-btn.hidden{display:none}
+.hint{pointer-events:none;margin:8px 0 0;font-size:11px;color:rgba(255,255,255,.55);text-align:center}
+/* race view — ocupa tudo por cima */
+.race-view{position:absolute;inset:0;background:#040512;z-index:10;display:flex;flex-direction:column;padding:10px}
+.race-view.hidden{display:none}
+#raceCanvas{width:100%;flex:1;max-height:62vh;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:#05071A}
+.race-hud{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px;background:rgba(15,19,40,.92);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin-top:8px;align-items:center}
+.race-hud small{font-size:10px;letter-spacing:.11em;color:#9AA4C8;font-weight:700;display:block}
+.race-hud strong{font-size:18px}
+.hud-center{text-align:center}
+#hudSpeed{font-family:'JetBrains Mono',monospace;font-weight:800}
+.lights{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;padding:8px 10px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.1);border-radius:999px}
+.light{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+.light.on{background:radial-gradient(circle at 30% 30%, #ff4d4d, #a00000);box-shadow:0 0 12px rgba(255,0,0,.7)}
+.light.on.green{background:radial-gradient(circle at 30% 30%, #00E676, #00682d);box-shadow:0 0 16px rgba(0,230,118,.9)}
+.rpm-wrap{margin-top:8px;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px 10px}
+.rpm-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.11em;color:#9AA4C8;font-weight:700}
+.rpm-bar{position:relative;height:14px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden;margin-top:4px;border:1px solid rgba(255,255,255,.06)}
+.rpm-fill{position:absolute;left:0;top:0;bottom:0;width:10%;background:linear-gradient(90deg, #00E5FF, #00E676, #FFD54A, #ff3d00);transition:width .06s linear}
+.rpm-perfect{position:absolute;left:68%;width:14%;top:0;bottom:0;border-left:2px solid #00E676;border-right:2px solid #00E676;background:repeating-linear-gradient(90deg, transparent 0 6px, rgba(0,230,118,.18) 6px 7px)}
+.rpm-red{position:absolute;right:0;width:12%;top:0;bottom:0;background:rgba(255,61,0,.18);border-left:2px solid #ff3d00}
+.race-controls{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.race-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn-launch{background:linear-gradient(180deg, #C0264A, #8A1840);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:800;letter-spacing:.10em;cursor:pointer}
+.btn-shift{background:linear-gradient(180deg, #00C853, #009624);color:#00140a;border:none;padding:14px;border-radius:12px;font-weight:800;letter-spacing:.08em;cursor:pointer}
+.btn-primary{background:linear-gradient(180deg, #00E5FF, #00B8D4);color:#001018;border:none;padding:12px;border-radius:12px;font-weight:800;cursor:pointer}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#EAF0FF;padding:10px;border-radius:12px;cursor:pointer}
+.hidden{display:none !important}
+.back-btn{position:absolute;top:10px;left:10px;z-index:11;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);color:#EAF0FF;padding:8px 12px;border-radius:999px;cursor:pointer}
+.shop-item{display:flex;flex-direction:column;gap:4px;text-align:left;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);cursor:pointer;color:#EAF0FF}
+.shop-item b{color:#FFD54A}
+.modal{position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:30}
+.modal.hidden{display:none}
+.modal-backdrop{position:absolute;inset:0;background:rgba(3,5,14,.72);backdrop-filter:blur(10px)}
+.modal-card{position:relative;background:linear-gradient(180deg, #12163A, #0A0E24);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px;max-width:520px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.modal-icon{width:64px;height:64px;margin:0 auto 10px;display:grid;place-items:center;font-size:32px;background:radial-gradient(circle at 30% 20%, rgba(255,213,74,.22), transparent 70%), linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,213,74,.22);border-radius:50%}
+.modal-card h2{margin:6px 0;font-family:'Outfit',sans-serif;font-weight:800}
+.modal-sub{margin:0;color:#9AA4C8;font-size:13px;line-height:1.5}
+.modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.modal-stats div{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px}
+.modal-stats span{display:block;font-size:10px;letter-spacing:.11em;color:#9AA4C8;margin-bottom:2px}
+.modal-stats strong{font-family:'JetBrains Mono',monospace;font-size:14px}
+.reward-break{margin:8px 0;padding:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;font-size:11px;color:#9AA4C8;text-align:left;line-height:1.6}
+.modal-actions{display:flex;flex-direction:column;gap:8px}
+.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.pick-grid button{padding:10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#EAF0FF;cursor:pointer;text-align:left}
+.pick-grid button b{font-size:11px;color:#4DD0E0}
+.pick-grid button.disabled{opacity:.38;cursor:not-allowed}
+@media (max-height: 760px){ .wheel-wrap{max-width:340px} .engine-label{font-size:12px} .spin-btn{padding:12px} }
+@media (min-width: 500px){ .stage{max-width:440px;margin:0 auto;box-shadow:0 0 60px rgba(0,0,0,.6)} body{background:#0A0A12} }
